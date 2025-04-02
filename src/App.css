@@ -1,0 +1,33 @@
+.carousel img{
+    width: 100% !important;
+    height: 85vh !important;
+}
+.card{
+    position: relative;
+    overflow: hidden;
+}
+.btn-container{
+    position: absolute;
+    transform: translateY(8vh);
+    opacity: 0;
+    transition: all .5s ease-in;
+}
+.card:hover .btn-container{
+    transform: translateY(-9vh);
+    opacity: 1;
+}
+
+
+.quentity-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+
+} 
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    background-color: rgb(255, 0, 0);
+    border-radius: 50px;
+}
+
