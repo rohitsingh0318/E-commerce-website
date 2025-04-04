@@ -4,7 +4,7 @@ import { product } from "../product";
 import Home from "./component/home/Home";
 import CartPage from "./component/cart/CartPage";
 import Header from './component/Header'; 
-import { BrowserRouter,HashRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 const App = () => {
   const [cart, setCart] = React.useState([]);
