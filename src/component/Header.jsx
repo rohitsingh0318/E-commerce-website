@@ -14,10 +14,10 @@ const Header = ({ cartCount }) => {
     <div className="collapse navbar-collapse ms-5" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link className="nav-link active" to={'/'} aria-current="page" href="#">Home</Link>
+          <Link className="nav-link active" to={'/E-commerce-website/'} aria-current="page" href="#">Home</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link" to={'/cart/'} >
+        <Link className="nav-link" to={'/E-commerce-website/cart/'} >
            Cards <span  className="badge text-bg-danger">{cartCount}</span>
         </Link>
         </li>

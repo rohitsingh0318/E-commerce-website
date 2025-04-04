@@ -55,11 +55,11 @@ const App = () => {
       <Header cartCount={cartCount} />
       <Routes>
         <Route
-          path="/"
+          path="/E-commerce-website/"
           element={<Home product={product} addCard={addCard} />}
         />
         <Route
-          path="/cart/"
+          path="E-commerce-website/cart/"
           element={
             <CartPage
               deleteCart={deleteCart}
