@@ -23,7 +23,7 @@ const App = () => {
       return [...prevCart, { ...product, quantity: 1 }];
     });
 
-    setCartCount((prevCount) => prevCount + 1); // Cart count update
+    setCartCount((prevCount) => prevCount + 1); 
   };
 
   const deleteCart = (id) => {
@@ -51,7 +51,7 @@ const App = () => {
   };
 
   return (
-    <HashRouter>
+    <BrowserRouter>
     <Header cartCount={cartCount} />
       <Routes>
         <Route
@@ -69,7 +69,7 @@ const App = () => {
           }
         />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 
