@@ -55,7 +55,7 @@ const App = () => {
       <Header cartCount={cartCount} />
       <Routes>
         <Route
-          path="/E-commerce-website/"
+          path="E-commerce-website/"
           element={<Home product={product} addCard={addCard} />}
         />
         <Route
