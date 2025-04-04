@@ -4,7 +4,7 @@ import { product } from "../product";
 import Home from "./component/home/Home";
 import CartPage from "./component/cart/CartPage";
 import Header from './component/Header'; 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter,HashRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 const App = () => {
   const [cart, setCart] = React.useState([]);
@@ -51,8 +51,8 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
-      <Header cartCount={cartCount} />
+    <HashRouter>
+    <Header cartCount={cartCount} />
       <Routes>
         <Route
           path="E-commerce-website/"
@@ -69,7 +69,7 @@ const App = () => {
           }
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

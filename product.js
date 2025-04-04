@@ -15,6 +15,5 @@ export const product = [
     {id:14, title: 'Product 14', image: 'src/assets/card-large-item6.jpg', price: 250},
     {id:15, title: 'Product 15', image: 'src/assets/card-large-item10.jpg', price: 100},
     {id:16, title: 'Product 16', image: 'src/assets/card-large-item11.jpg', price: 190},
-    {id:17, title: 'Product 17', image: 'src/assets/card-large-item12.jpg', price: 180},
-
+    {id:17, title: 'Product 17', image: 'src/assets/card-large-item12.jpg', price: 180}
 ]
