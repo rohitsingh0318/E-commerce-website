@@ -59,7 +59,7 @@ const App = () => {
           element={<Home product={product} addCard={addCard} />}
         />
         <Route
-          path="E-commerce-website/cart/"
+          path="cart/"
           element={
             <CartPage
               deleteCart={deleteCart}

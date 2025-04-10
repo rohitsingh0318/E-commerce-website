@@ -17,7 +17,7 @@ const Header = ({ cartCount }) => {
           <Link className="nav-link active" to={'E-commerce-website/'} aria-current="page" href="#">Home</Link>
         </li>
         <li className="nav-item">
-        <Link className="nav-link" to={'E-commerce-website/cart/'} >
+        <Link className="nav-link" to={'cart'} >
            Cards <span  className="badge text-bg-danger">{cartCount}</span>
         </Link>
         </li>
