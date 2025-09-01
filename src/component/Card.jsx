@@ -76,7 +76,7 @@ const Card = ({ cart, deleteCart, updateQuantity }) => {
                 className="img-fluid"
                 style={{ maxWidth: "300px" }}
               />
-              <h5 className="mt-2 text-success">Make payment using this card code 🎉</h5>
+              <h5 className="mt-2 text-success">Make Payment using this QR Code 🥰 </h5>
             </div>
           )}
         </div>
