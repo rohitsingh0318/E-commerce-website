@@ -66,7 +66,6 @@ const Card = ({ cart, deleteCart, updateQuantity }) => {
             Confirm Payment 👉
           </button>
 
-          {/* Agar showImage true hai toh image render hogi */}
           {showImage && (
             <div className="text-center my-3">
               <img
@@ -75,7 +74,7 @@ const Card = ({ cart, deleteCart, updateQuantity }) => {
                 className="img-fluid"
                 style={{ maxWidth: "300px" }}
               />
-              <h5 className="mt-2 text-success">Make Payment using this QR Code 🥰 </h5>
+              <h5 className="mt-2 text-success">Make Payment using this QR Code </h5>
             </div>
           )}
         </div>
