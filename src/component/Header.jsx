@@ -29,6 +29,10 @@ const Header = ({ cartCount }) => {
         </li>
       </ul>
     </div>
+    <div className="searching">
+      <input type="text" placeholder='Search Items...'  className='search' required/>
+      <button className='btn btn-primary' >Search</button>
+    </div>
   </div>
 </nav>
 

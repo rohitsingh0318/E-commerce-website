@@ -3,56 +3,75 @@ import "./App.css";
 import { product } from "../product";
 import Home from "./component/home/Home";
 import CartPage from "./component/cart/CartPage";
-import Header from './component/Header'; 
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import Header from "./component/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [cart, setCart] = React.useState([]);
-  const [cartCount, setCartCount] = React.useState(0); 
+  const [cartCount, setCartCount] = React.useState(0);
 
   const addCard = (product) => {
     setCart((prevCart) => {
       const itemInCart = prevCart.find((item) => item.id === product.id);
+      let updatedCart;
       if (itemInCart) {
-        return prevCart.map((item) =>
+        updatedCart = prevCart.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
+      } else {
+        updatedCart = [...prevCart, { ...product, quantity: 1 }];
       }
-      return [...prevCart, { ...product, quantity: 1 }];
-    });
 
-    setCartCount((prevCount) => prevCount + 1); 
+      // Update cart count
+      const totalCount = updatedCart.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+      setCartCount(totalCount);
+
+      return updatedCart;
+    });
   };
 
   const deleteCart = (id) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-
-    const deletedItem = cart.find((item) => item.id === id);
-    if (deletedItem) {
-      setCartCount((prevCount) => prevCount - deletedItem.quantity);
-    }
+    setCart((prevCart) => {
+      const updatedCart = prevCart.filter((item) => item.id !== id);
+      const totalCount = updatedCart.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+      setCartCount(totalCount);
+      return updatedCart;
+    });
   };
 
   const updateQuantity = (id, quantity) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
-      )
-    );
+    setCart((prevCart) => {
+      const updatedCart = prevCart
+        .map((item) => {
+          if (item.id === id) {
+            const newQty = Math.max(0, quantity);
+            return newQty === 0 ? null : { ...item, quantity: newQty };
+          }
+          return item;
+        })
+        .filter((item) => item !== null);
 
-    const newTotal = cart.reduce(
-      (total, item) =>
-        item.id === id ? total + quantity - item.quantity : total,
-      cartCount
-    );
-    setCartCount(newTotal);
+      const totalCount = updatedCart.reduce(
+        (total, item) => total + item.quantity,
+        0
+      );
+      setCartCount(totalCount);
+
+      return updatedCart;
+    });
   };
 
   return (
     <BrowserRouter>
-    <Header cartCount={cartCount} />
+      <Header cartCount={cartCount} />
       <Routes>
         <Route
           path="E-commerce-website/"
@@ -62,9 +81,9 @@ const App = () => {
           path="cart/"
           element={
             <CartPage
+              cart={cart}
               deleteCart={deleteCart}
               updateQuantity={updateQuantity}
-              cart={cart}
             />
           }
         />

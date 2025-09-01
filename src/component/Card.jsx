@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import qrcode from "../assets/qr-code.jpg";
+<assets></assets>
 
 const Card = ({ cart, deleteCart, updateQuantity }) => {
+  const [showImage, setShowImage] = useState(false); // image state
+
   const total = cart.reduce(
     (total, item) => item.price * item.quantity + total,
     0
   );
-  const img = cart.map((ite) => {
-    console.log(ite.image);
-  });
+
   return (
     <div className="container my-3 w-75 p-3 border-2 border-primary border">
-      {/* <img src={img} className="w-100" alt="" /> */}
       {cart.map((item) => (
         <div key={item.id} className="row my-3">
           <div className="col-md-8 d-flex">
-            {/* <img src={item.image} style={{ width: "100%" }} alt="" /> */}
-            <img src={`/E-commerce-website/${item.image}`}
+            <img
+              src={`/E-commerce-website/${item.image}`}
               className="img-fluid object-fit-cover"
               style={{ height: "120px", width: "100px" }}
               alt=""
@@ -51,17 +52,33 @@ const Card = ({ cart, deleteCart, updateQuantity }) => {
           </div>
         </div>
       ))}
+
       {cart.length === 0 ? (
-        <h1 className="text-center">The Card is Empty</h1>
+        <h1 className="text-center">The Cart is Empty</h1>
       ) : (
         <div className="summary my-2">
           <h4 className="my-4">
-            Total Price : <small className="fw-normal">&#8377; {total}</small>{" "}
+            Total Price : <small className="fw-normal">&#8377; {total}</small>
           </h4>
-          <button className="btn btn-success text-center w-100">
-            {" "}
+          <button
+            className="btn btn-success text-center w-100"
+            onClick={() => setShowImage(true)} // click par image dikhegi
+          >
             Confirm Payment 👉
           </button>
+
+          {/* Agar showImage true hai toh image render hogi */}
+          {showImage && (
+            <div className="text-center my-3">
+              <img
+                src={qrcode}
+                alt="Make payment using this card code"
+                className="img-fluid"
+                style={{ maxWidth: "300px" }}
+              />
+              <h5 className="mt-2 text-success">Make payment using this card code 🎉</h5>
+            </div>
+          )}
         </div>
       )}
     </div>
