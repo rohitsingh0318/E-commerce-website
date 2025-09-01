@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import qrcode from "../assets/qr-code.jpg";
-<assets></assets>
 
 const Card = ({ cart, deleteCart, updateQuantity }) => {
   const [showImage, setShowImage] = useState(false); // image state
